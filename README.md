@@ -1,5 +1,6 @@
 # samp-node-encode-fix
  Fix para caracteres ASCII extended en SAMP-NODE.
+ `sampctl package install TommS2/samp-node-encode-fix`
  
 
 # Español / Spanish
