@@ -1,6 +1,6 @@
 {
 	"user": "TommS2",
-	"repo": "samp-node-1252-fix",
+	"repo": "samp-node-encode-fix",
 	"dependencies": [
 		"pawn-lang/samp-stdlib",
 		"AmyrAhmady/samp-node:2.1.0",
