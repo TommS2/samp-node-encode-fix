@@ -3,16 +3,13 @@
 #endif
 #define SAMP_NODE_ENCODE_FIX
 
+#if !defined isnull
+    #define isnull(%1) ((!(%1[0])) || (((%1[0]) == '\1') && (!(%1[1]))))
+#endif
+
 #include <a_samp>
 #include <samp-node>
 #include <strlib>
-
-#if defined _ALS_SendClientMessage
-	#undef SendClientMessage
-#else
-	#define _ALS_SendClientMessage
-#endif
-#define SendClientMessage SendClientMessageEx
 
 forward SendClientMessageEx(playerid, color, const message[]);
 public SendClientMessageEx(playerid, color, const message[]){
@@ -21,31 +18,25 @@ public SendClientMessageEx(playerid, color, const message[]){
 	SendClientMessage(playerid, color, string);
 }
 
-#if defined _ALS_ShowPlayerDialog
-	#undef ShowPlayerDialog
-#else
-	#define _ALS_ShowPlayerDialog
-#endif
-#define ShowPlayerDialog ShowPlayerDialogEx
-
 new infostring[4096];
 forward ShowPlayerDialogEx(playerid, dialogid, style, const caption[], const info[], const button1[], const button2[]);
 public ShowPlayerDialogEx(playerid, dialogid, style, const caption[], const info[], const button1[], const button2[]) {
 	new captionstring[1024], button1string[1024], button2string[1024];
 	format(infostring, sizeof infostring, "");
-	utf8decode(infostring, info);
-	utf8decode(captionstring, caption);
-	utf8decode(button1string, button1);
-	utf8decode(button2string, button2);
+	if(!isnull(info)) {
+		utf8decode(infostring, info);
+	}
+	if(!isnull(caption)) {
+		utf8decode(captionstring, caption);		
+	}
+	if(!isnull(button1)) {
+		utf8decode(button1string, button1);
+	}
+	if(!isnull(button2)) {
+		utf8decode(button2string, button2);
+	}
 	ShowPlayerDialog(playerid, dialogid, style, captionstring, infostring, button1string, button2string);
 }
-
-#if defined _ALS_SendClientMessageToAll
-	#undef SendClientMessageToAll
-#else
-	#define _ALS_SendClientMessageToAll
-#endif
-#define SendClientMessageToAll SendClientMessageToAllEx
 
 forward SendClientMessageToAllEx(color, const message[]);
 public SendClientMessageToAllEx(color, const message[]){
