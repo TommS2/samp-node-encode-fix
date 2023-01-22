@@ -21,17 +21,10 @@ public SendClientMessageEx(playerid, color, const message[]){
 new infostring[4096];
 forward ShowPlayerDialogEx(playerid, dialogid, style, const caption[], const info[], const button1[], const button2[]);
 public ShowPlayerDialogEx(playerid, dialogid, style, const caption[], const info[], const button1[], const button2[]) {
-	new captionstring[1024], button1string[1024], button2string[1024];
-	format(infostring, sizeof infostring, "");
-	if(!isnull(info)) {
-		utf8decode(infostring, info);
-	}
-	if(!isnull(caption)) {
-		utf8decode(captionstring, caption);		
-	}
-	if(!isnull(button1)) {
-		utf8decode(button1string, button1);
-	}
+	new captionstring[64], button1string[64], button2string[64];
+	utf8decode(infostring, info);
+	utf8decode(captionstring, caption);		
+	utf8decode(button1string, button1);
 	if(!isnull(button2)) {
 		utf8decode(button2string, button2);
 	}
