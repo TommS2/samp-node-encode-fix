@@ -1,9 +1,17 @@
 {
 	"user": "TommS2",
 	"repo": "samp-node-encode-fix",
+	"tag": "v1.0.1",
 	"dependencies": [
 		"pawn-lang/samp-stdlib",
 		"AmyrAhmady/samp-node:2.1.0",
-		"oscar-broman/strlib"
-	]
+		"oscar-broman/strlib",
+		"Ino-Bagaric/Dialog-Center-Text"
+	],
+	"runtime": {
+		"version": "0.3.7",
+		"mode": "server",
+		"rcon_password": "password",
+		"port": 7777
+	}
 }

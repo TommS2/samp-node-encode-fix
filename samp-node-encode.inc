@@ -10,6 +10,7 @@
 #include <a_samp>
 #include <samp-node>
 #include <strlib>
+#include <DialogCenter>
 
 forward SendClientMessageEx(playerid, color, const message[]);
 public SendClientMessageEx(playerid, color, const message[]){
@@ -28,7 +29,7 @@ public ShowPlayerDialogEx(playerid, dialogid, style, const caption[], const info
 	if(!isnull(button2)) {
 		utf8decode(button2string, button2);
 	}
-	ShowPlayerDialog(playerid, dialogid, style, captionstring, infostring, button1string, button2string);
+	dcenter_ShowPlayerDialog(playerid, dialogid, style, captionstring, infostring, button1string, button2string);
 }
 
 forward SendClientMessageToAllEx(color, const message[]);
