@@ -11,6 +11,7 @@
 #include <samp-node>
 #include <strlib>
 #include <DialogCenter>
+#include <streamer>
 
 forward SendClientMessageEx(playerid, color, const message[]);
 public SendClientMessageEx(playerid, color, const message[]){
@@ -37,6 +38,22 @@ public SendClientMessageToAllEx(color, const message[]){
 	new string[1024];
 	utf8decode(string, message);
 	SendClientMessageToAll(color, string);
+	return 1;
+}
+
+forward CreateDynamic3DTextLabelFix(const text[], color, Float:x, Float:y, Float:z, Float:drawdistance, attachedplayer, attachedvehicle, testlos, worldid, interiorid, playerid, streamdistance, areaid, priority);
+public CreateDynamic3DTextLabelFix(const text[], color, Float:x, Float:y, Float:z, Float:drawdistance, attachedplayer, attachedvehicle , testlos, worldid, interiorid, playerid, streamdistance, areaid, priority){
+	new string[1024];
+	utf8decode(string, text);
+	CreateDynamic3DTextLabel(string, color, x, y, z, drawdistance, attachedplayer, attachedvehicle, testlos, worldid, interiorid, playerid, streamdistance, areaid, priority);
+	return 1;
+}
+
+forward Update3DTextLabelTextFix(Text3D:id, color, const text[]);
+public Update3DTextLabelTextFix(Text3D:id, color, const text[]){
+	new string[1024];
+	utf8decode(string, text);
+	Update3DTextLabelText(id, color, string);
 	return 1;
 }
 
