@@ -41,14 +41,6 @@ public SendClientMessageToAllEx(color, const message[]){
 	return 1;
 }
 
-forward CreateDynamic3DTextLabelFix(const text[], color, Float:x, Float:y, Float:z, Float:drawdistance, attachedplayer, attachedvehicle, testlos, worldid, interiorid, playerid, streamdistance, areaid, priority);
-public CreateDynamic3DTextLabelFix(const text[], color, Float:x, Float:y, Float:z, Float:drawdistance, attachedplayer, attachedvehicle , testlos, worldid, interiorid, playerid, streamdistance, areaid, priority){
-	new string[1024];
-	utf8decode(string, text);
-	CreateDynamic3DTextLabel(string, color, x, y, z, drawdistance, attachedplayer, attachedvehicle, testlos, worldid, interiorid, playerid, streamdistance, areaid, priority);
-	return 1;
-}
-
 forward UpdateDynamic3DTextLabelTextFix(Text3D:id, color, const text[]);
 public UpdateDynamic3DTextLabelTextFix(Text3D:id, color, const text[]){
 	new string[1024];
