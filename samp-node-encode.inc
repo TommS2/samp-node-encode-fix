@@ -49,11 +49,11 @@ public CreateDynamic3DTextLabelFix(const text[], color, Float:x, Float:y, Float:
 	return 1;
 }
 
-forward Update3DTextLabelTextFix(Text3D:id, color, const text[]);
-public Update3DTextLabelTextFix(Text3D:id, color, const text[]){
+forward UpdateDynamic3DTextLabelTextFix(Text3D:id, color, const text[]);
+public UpdateDynamic3DTextLabelTextFix(Text3D:id, color, const text[]){
 	new string[1024];
 	utf8decode(string, text);
-	Update3DTextLabelText(id, color, string);
+	UpdateDynamic3DTextLabelText(id, color, string);
 	return 1;
 }
 
