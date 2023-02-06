@@ -44,7 +44,9 @@ public SendClientMessageToAllEx(color, const message[]){
 forward UpdateDynamic3DTextLabelTextFix(Text3D:id, color, const text[]);
 public UpdateDynamic3DTextLabelTextFix(Text3D:id, color, const text[]){
 	new string[1024];
-	utf8decode(string, text);
+	if(!isnull(text)) {
+		utf8decode(string, text);
+	}
 	UpdateDynamic3DTextLabelText(id, color, string);
 	return 1;
 }
